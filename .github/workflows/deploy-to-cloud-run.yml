@@ -51,7 +51,7 @@ jobs:
         with:
           # This is the email of the service account that has permissions to deploy to Cloud Run
           # (e.g., `roles/run.admin`, `roles/artifactregistry.writer`)
-          workload_identity_provider: '//iam.googleapis.com/projects/1088640053131/locations/global/workloadIdentityPools/github-actions-pool/providers/github' # IMPORTANT: Replace with your WIF provider
+          workload_identity_provider: '//iam.googleapis.com/projects/1088640053131/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider' # IMPORTANT: Replace with your WIF provider
           service_account: 'github-actions-deployer@hellogrpc-296603.iam.gserviceaccount.com' # IMPORTANT: Replace with your service account email
 
       # Alternative: Authenticate using a service account key (less secure, but simpler for quick tests)

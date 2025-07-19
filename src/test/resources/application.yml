@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: invoice-test
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  profiles:
+    active: test
+
+server:
+  port: 0
+
+app:
+  frontend:
+    base-url: http://localhost:3000
+
+circle:
+  api:
+    base-url: https://api-sandbox.circle.com
+    key: test-api-key
+  webhook:
+    secret: test-webhook-secret
+
+logging:
+  level:
+    com.invoice: DEBUG
+    org.springframework.web: WARN

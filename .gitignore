@@ -1,0 +1,28 @@
+# --------------------
+# Gradle Files
+# --------------------
+.gradle
+build/
+bin/
+!gradle/**/*.jar
+.java-version
+
+# --------------------
+# IntelliJ Files
+# --------------------
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
+# --------------------
+# OSX Files
+# --------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes

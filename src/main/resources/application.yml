@@ -2,9 +2,7 @@ spring:
   application:
     name: invoice
   datasource:
-    url: jdbc:postgresql://localhost:5432/invoice_db
-    username: admin
-    password: admin
+    url: jdbc:postgresql:///invoice_db?cloudSqlInstance=hellogrpc-296603:us-central1:invoice&socketFactory=com.google.cloud.sql.postgres.SocketFactory&user=postgres&password=invoice
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

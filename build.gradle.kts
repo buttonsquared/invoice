@@ -29,6 +29,9 @@ dependencies {
 	
 	// Database
 	runtimeOnly("org.postgresql:postgresql")
+	runtimeOnly("com.google.cloud.sql:postgres-socket-factory:1.25.2")
+	runtimeOnly("com.google.cloud.sql:cloud-sql-connector-jdbc-sqlserver:1.25.2")
+
 	
 	// HTTP Client for Circle API
 	implementation("org.springframework.boot:spring-boot-starter-webflux")

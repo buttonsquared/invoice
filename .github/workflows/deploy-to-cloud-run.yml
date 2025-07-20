@@ -69,7 +69,7 @@ jobs:
           project_id: ${{ env.GCP_PROJECT_ID }}
 
       - name: Configure Docker to use Google Cloud CLI for authentication
-        run: gcloud auth configure-docker europe-west1-docker.pkg.dev # IMPORTANT: Adjust region if not europe-west1
+        run: gcloud auth configure-docker us-west1-docker.pkg.dev # IMPORTANT: Adjust region if not europe-west1
 
       - name: Build and push Docker image to Artifact Registry
         run: |

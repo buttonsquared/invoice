@@ -77,7 +77,7 @@ jobs:
           # Format: REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/IMAGE_NAME:TAG
           # Assuming you have an Artifact Registry repository named 'springboot-repo' in your region
           # If not, create one: `gcloud artifacts repositories create springboot-repo --repository-format=docker --location=your-region`
-          IMAGE_PATH="${{ env.CLOUD_RUN_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/invoice/${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          IMAGE_PATH="${{ env.CLOUD_RUN_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/dockerrepo/${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
           # Create a Dockerfile on the fly for simplicity, or use an existing one
           # This Dockerfile assumes your Spring Boot JAR is in build/libs/
@@ -100,7 +100,7 @@ jobs:
           service: ${{ env.CLOUD_RUN_SERVICE_NAME }}
           region: ${{ env.CLOUD_RUN_REGION }}
           # Use the same image path as built and pushed above
-          image: ${{ env.CLOUD_RUN_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/invoice/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          image: ${{ env.CLOUD_RUN_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/dockerrepo/${{ env.IMAGE_NAME }}:${{ github.sha }}
           # Optional: allow unauthenticated access to the service
           # If you want to restrict access, remove this line and configure IAM roles on Cloud Run
           flags: --allow-unauthenticated

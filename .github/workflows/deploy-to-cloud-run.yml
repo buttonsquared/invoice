@@ -82,7 +82,7 @@ jobs:
           # Create a Dockerfile on the fly for simplicity, or use an existing one
           # This Dockerfile assumes your Spring Boot JAR is in build/libs/
           cat <<EOF > Dockerfile
-          FROM openjdk:17-jdk-slim
+          FROM openjdk:21-jdk-slim
           VOLUME /tmp
           ARG JAR_FILE=${{ env.SPRING_BOOT_JAR_PATH }}
           COPY \${JAR_FILE} app.jar

@@ -95,12 +95,18 @@ jobs:
           docker push "$IMAGE_PATH"
 
       - name: Deploy to Google Cloud Run
-        uses: google-github-actions/deploy-cloudrun@v2
+        run: |
+          gcloud run deploy ${{ env.CLOUD_RUN_SERVICE_NAME }} \
+            --image ${{ env.CLOUD_RUN_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/dockerrepo/${{ env.IMAGE_NAME }}:${{ github.sha }} \
+            --region ${{ env.CLOUD_RUN_REGION }} \
+            --allow-unauthenticated \
+            --format json \
+            --verbosity debug
         with:
           service: ${{ env.CLOUD_RUN_SERVICE_NAME }}
           region: ${{ env.CLOUD_RUN_REGION }}
           # Use the same image path as built and pushed above
-          image: ${{ env.CLOUD_RUN_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/dockerrepo/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          image: ${{ env.CLOUD_x`RUN_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/dockerrepo/${{ env.IMAGE_NAME }}:${{ github.sha }}
           # Optional: allow unauthenticated access to the service
           # If you want to restrict access, remove this line and configure IAM roles on Cloud Run
           flags: --allow-unauthenticated
